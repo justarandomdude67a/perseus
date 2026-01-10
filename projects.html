@@ -59,32 +59,34 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* Smooth dropdown for project details with proper spacing */
+/* Project details container */
 .project-details {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.8s cubic-bezier(0.77,0,0.175,1), padding 0.5s ease;
-  padding: 0 16px 10px 16px; /* horizontal + bottom padding */
+  opacity: 0; /* hidden by default */
+  transition: max-height 0.8s cubic-bezier(0.77,0,0.175,1), padding 0.5s ease, opacity 0.5s ease;
+  padding: 0 16px;
 }
 
 .project:hover .project-details {
-  max-height: 800px; /* enough for multiple images */
-  padding: 10px 16px 20px 16px; /* top + horizontal + bottom padding */
+  max-height: 800px;
+  padding: 10px 16px 20px 16px;
+  opacity: 1; /* fade in on hover */
 }
 
 /* Description spacing */
 .project-details p {
-  margin-bottom: 12px; /* space between description and images */
+  margin-bottom: 12px;
 }
 
-/* Project images inside dropdown */
+/* Project images spacing */
 .project-images img {
   width: 100%;
   border-radius: 8px;
-  margin-bottom: 12px; /* space between images */
+  margin-bottom: 12px;
 }
 
-/* Button wrapper to avoid glow clipping */
+/* Button wrapper for glow spacing */
 .button-container {
   display: inline-block;
   margin-bottom: 6px; /* ensures glow has space */
