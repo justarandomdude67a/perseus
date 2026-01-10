@@ -81,7 +81,8 @@
     }
     .project:hover .project-details {
       max-height: 600px;
-      padding: 15px 0 0 0;
+      padding: 15px 0 20px 0; /* Added bottom padding for glow space */
+      overflow: visible; /* Allows glow to show */
     }
     .project-images {
       display: grid;
@@ -111,6 +112,7 @@
     }
     .btn-container {
       text-align: center;
+      padding-bottom: 5px; /* Extra space for glow */
     }
     .footer {
       margin-top: 60px;
