@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>perseus - projects</title>
-
-<link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 :root {
   --bg: #0a0a0a;
@@ -28,13 +25,15 @@ body {
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   max-width: 600px;
   width: 100%;
   padding: 40px 20px;
-  margin: 0 auto;
 }
 
 h1 {
@@ -43,7 +42,82 @@ h1 {
   text-transform: lowercase;
 }
 
-/* Navigation */
+.project {
+  background: var(--card);
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: 0.3s;
+}
+
+.project:hover {
+  box-shadow: 0 0 12px var(--hover-glow);
+  transform: translateY(-2px);
+}
+
+/* Smooth slide + fade dropdown with slower collapse */
+.project-details {
+  max-height: 0;                  /* collapsed by default */
+  opacity: 0;                     /* invisible */
+  transform: translateY(10px);    /* slightly pushed down */
+  overflow: hidden;
+  transition: 
+    max-height 0.8s cubic-bezier(0.77, 0, 0.175, 1), /* slower expand/collapse */
+    transform 0.4s ease, 
+    opacity 0.4s ease, 
+    padding 0.4s ease;
+  padding: 0 16px;
+}
+
+.project:hover .project-details {
+  max-height: 800px;              /* enough for content */
+  opacity: 1;
+  transform: translateY(0);
+  padding: 10px 16px 20px 16px;
+}
+
+/* Description spacing */
+.project-details p {
+  margin-bottom: 12px;
+}
+
+/* Project images spacing */
+.project-images img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Button wrapper for glow spacing */
+.button-container {
+  display: inline-block;
+  margin-bottom: 6px; /* ensures glow has space */
+}
+
+/* Roblox play button */
+.roblox-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid #222;
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  margin-top: 6px;
+  transition: 0.3s transform ease, 0.3s box-shadow ease;
+}
+
+/* Pulse effect on hover */
+.roblox-btn:hover {
+  box-shadow: 0 0 16px var(--hover-glow);
+  transform: scale(1.05) translateY(-2px);
+}
+
+/* Navigation bar */
 .nav {
   display: flex;
   gap: 20px;
@@ -65,88 +139,9 @@ h1 {
   transform: translateY(-1px);
 }
 
-/* Project cards */
-.project {
-  background: var(--card);
-  border: 1px solid #222;
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 16px;
-  cursor: pointer;
-  position: relative;
-  transition: 0.4s ease;
-}
-
-.project:hover {
-  box-shadow: 0 0 16px var(--hover-glow);
-  transform: translateY(-4px);
-}
-
-/* Dropdown */
-.project-details {
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(12px);
-  overflow: hidden;
-  padding: 0 16px;
-  transition:
-    max-height 0.9s cubic-bezier(0.77, 0, 0.175, 1),
-    opacity 0.5s ease,
-    transform 0.5s ease,
-    padding 0.4s ease;
-}
-
-.project:hover .project-details {
-  max-height: 900px;
-  opacity: 1;
-  transform: translateY(0);
-  padding: 14px 16px 24px;
-}
-
-/* Text + images */
-.project-details p {
-  margin-bottom: 14px;
-  color: var(--muted);
-}
-
-.project-images img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 14px;
-}
-
-/* Button */
-.button-container {
-  display: inline-block;
-  margin-bottom: 6px;
-}
-
-.roblox-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 20px;
-  border-radius: 14px;
-  border: 1px solid #222;
-  background: var(--card);
-  color: var(--text);
-  text-decoration: none;
-  transition: 0.4s ease;
-}
-
-.roblox-btn img {
-  height: 24px;
-  margin-right: 10px;
-}
-
-/* Premium pulse */
-.roblox-btn:hover {
-  box-shadow: 0 0 22px var(--hover-glow);
-  transform: scale(1.07);
-}
-
 /* Footer */
 .footer {
-  margin-top: 60px;
+  margin-top: 40px;
   color: var(--muted);
   font-size: 0.8rem;
   text-align: center;
@@ -154,7 +149,6 @@ h1 {
 </style>
 </head>
 <body>
-
 <div class="container">
   <div class="nav">
     <a href="index.html">Home</a>
@@ -164,33 +158,37 @@ h1 {
 
   <h1>projects</h1>
 
+  <!-- Dark Souls Themed Build -->
   <div class="project">
     <strong>Dark Souls Themed Build</strong>
     <div class="project-details">
       <p>(2024) dungeon themed dark souls build.</p>
       <div class="project-images">
-        <img src="ruins1.png">
-        <img src="ruins2.png">
+        <img src="ruins1.png" alt="Dungeon screenshot 1">
+        <img src="ruins2.png" alt="Dungeon screenshot 2">
       </div>
       <div class="button-container">
         <a href="https://www.roblox.com/games/PLACEHOLDER" class="roblox-btn" target="_blank">
-          <img src="roblox-icon.png"> Play Game
+          <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;">
+          Play Game
         </a>
       </div>
     </div>
   </div>
 
+    <!-- Cyber City Themed Build -->
   <div class="project">
-    <strong>Cyberpunk City Build</strong>
+    <strong>CyberPunk Themed Build</strong>
     <div class="project-details">
-      <p>(2024) neon cyberpunk city environment.</p>
+      <p>(2024) cyberpunk themed dark souls build.</p>
       <div class="project-images">
-        <img src="cyber1.png">
-        <img src="cyber2.png">
+        <img src="cyber1.png" alt="Cyber screenshot 1">
+        <img src="cyber2.png" alt="Cyber screenshot 2">
       </div>
       <div class="button-container">
         <a href="https://www.roblox.com/games/PLACEHOLDER" class="roblox-btn" target="_blank">
-          <img src="roblox-icon.png"> Play Game
+          <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;">
+          Play Game
         </a>
       </div>
     </div>
@@ -198,23 +196,5 @@ h1 {
 
   <div class="footer">© 2026 perseus</div>
 </div>
-
-<script>
-document.querySelectorAll(".project").forEach(project => {
-  project.addEventListener("mouseenter", () => {
-    const rect = project.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    const projectCenter = rect.top + scrollTop + rect.height / 2;
-    const viewportCenter = window.innerHeight / 2;
-
-    window.scrollTo({
-      top: projectCenter - viewportCenter,
-      behavior: "smooth"
-    });
-  });
-});
-</script>
-
 </body>
 </html>
