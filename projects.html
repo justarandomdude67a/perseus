@@ -79,10 +79,16 @@ h1 {
   margin-bottom: 8px;
 }
 
+/* Button wrapper to avoid glow clipping */
+.button-container {
+  padding-right: 24px; /* ensures glow has space */
+  display: inline-block;
+}
+
 /* Roblox play button */
 .roblox-btn {
   display: inline-block;
-  padding: 10px 18px; /* extra right padding for glow */
+  padding: 10px 18px;
   border-radius: 12px;
   border: 1px solid #222;
   background: var(--card);
@@ -90,7 +96,6 @@ h1 {
   text-decoration: none;
   transition: 0.3s;
   margin-top: 6px;
-  margin-right: 6px; /* added so glow isn’t cut off */
 }
 
 .roblox-btn:hover {
@@ -148,10 +153,12 @@ h1 {
         <img src="brainrot1.jpg" alt="Brainrot screenshot 1">
         <img src="brainrot2.jpg" alt="Brainrot screenshot 2">
       </div>
-      <a href="https://www.roblox.com/games/PLACEHOLDER" class="roblox-btn">
-        <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;">
-        Play Game
-      </a>
+      <div class="button-container">
+        <a href="https://www.roblox.com/games/PLACEHOLDER" class="roblox-btn">
+          <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;">
+          Play Game
+        </a>
+      </div>
     </div>
   </div>
 
@@ -164,10 +171,12 @@ h1 {
         <img src="mm2map1.jpg" alt="MM2 map 1">
         <img src="mm2map2.jpg" alt="MM2 map 2">
       </div>
-      <a href="https://www.roblox.com/games/PLACEHOLDER2" class="roblox-btn">
-        <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;">
-        Play Game
-      </a>
+      <div class="button-container">
+        <a href="https://www.roblox.com/games/PLACEHOLDER2" class="roblox-btn">
+          <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;">
+          Play Game
+        </a>
+      </div>
     </div>
   </div>
 
