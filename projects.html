@@ -6,14 +6,18 @@
 <title>perseus - projects</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-:root { --bg:#0a0a0a; --card:#111; --text:#fff; --muted:#777; --hover-glow:#ffffff; }
+:root { --bg:#0a0a0a; --card:#111; --text:#fff; --muted:#777; --hover-glow:#fff; }
 * { margin:0; padding:0; box-sizing:border-box; font-family:Inter,system-ui; }
 body { background:var(--bg); color:var(--text); min-height:100vh; display:flex; align-items:center; justify-content:center; }
 .container { max-width:600px; width:100%; padding:40px 20px; }
 h1 { font-size:2rem; margin-bottom:20px; text-transform:lowercase; }
-.project { background:var(--card); border:1px solid #222; border-radius:12px; padding:16px; margin-bottom:12px; transition:0.3s; }
-.project:hover { box-shadow: 0 0 12px var(--hover-glow); transform: translateY(-2px); }
-.project a { color:var(--hover-glow); text-decoration:none; transition:0.3s; }
+.project { background:var(--card); border:1px solid #222; border-radius:12px; padding:16px; margin-bottom:12px; transition:0.3s; cursor:pointer; text-align:left; position:relative; }
+.project:hover { box-shadow:0 0 12px var(--hover-glow); transform:translateY(-2px); }
+.project-details { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s ease; padding:0 0; }
+.project:hover .project-details { max-height:500px; padding:10px 0; }
+.project-images img { width:100%; border-radius:8px; margin-bottom:8px; }
+.roblox-btn { display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid #222; background:var(--card); color:var(--text); text-decoration:none; transition:0.3s; margin-top:6px; }
+.roblox-btn:hover { box-shadow:0 0 12px var(--hover-glow); transform:translateY(-2px); }
 .nav { display:flex; gap:20px; margin-bottom:30px; justify-content:center; }
 .nav a { color:var(--text); text-decoration:none; border:1px solid #222; padding:10px 14px; border-radius:12px; transition:0.3s; }
 .nav a:hover { box-shadow:0 0 12px var(--hover-glow); transform:translateY(-1px); }
@@ -21,30 +25,46 @@ h1 { font-size:2rem; margin-bottom:20px; text-transform:lowercase; }
 </style>
 </head>
 <body>
-  <div class="container">
-    <div class="nav">
-      <a href="index.html">Home</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <h1>projects</h1>
-
-    <div class="project">
-      <strong>Brainrot Delivery Simulator</strong><br>
-      Roblox game with collection loops & upgrades.
-    </div>
-
-    <div class="project">
-      <strong>MM2 Map Packs</strong><br>
-      12 semi-realistic / cartoony maps for MM2.
-    </div>
-
-    <div class="project">
-      <strong>Lua Tools</strong><br>
-      Utility scripts, frameworks, and UI systems.
-    </div>
-
-    <div class="footer">© 2026 perseus</div>
+<div class="container">
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="pricing.html">Pricing</a>
   </div>
+
+  <h1>projects</h1>
+
+  <!-- Project 1 -->
+  <div class="project">
+    <strong>Brainrot Delivery Simulator</strong>
+    <div class="project-details">
+      <p>Roblox game with collection loops & upgrades.</p>
+      <div class="project-images">
+        <img src="brainrot1.jpg" alt="Brainrot screenshot 1">
+        <img src="brainrot2.jpg" alt="Brainrot screenshot 2">
+      </div>
+      <a href="https://www.roblox.com/games/PLACEHOLDER" class="roblox-btn">
+        <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;"> Play Game
+      </a>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project">
+    <strong>MM2 Map Packs</strong>
+    <div class="project-details">
+      <p>12 semi-realistic / cartoony maps for MM2.</p>
+      <div class="project-images">
+        <img src="mm2map1.jpg" alt="MM2 map 1">
+        <img src="mm2map2.jpg" alt="MM2 map 2">
+      </div>
+      <a href="https://www.roblox.com/games/PLACEHOLDER2" class="roblox-btn">
+        <img src="roblox-icon.png" alt="Roblox" style="height:24px; vertical-align:middle; margin-right:8px;"> Play Game
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">© 2026 perseus</div>
+</div>
 </body>
 </html>
